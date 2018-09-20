@@ -5,10 +5,10 @@ library(dplyr)
 library(ggplot2) # For plotting
 library(gridExtra) 
 
-country_codes <- c("AT", "BE", "BG", "CH", "CY", "CZ", "DE", "DK", "EE", "EL",
-                   "ES", "FI", "FR", "HR", "HU", "IE", "IT", "IS", "LI", "LT",
-                   "LU", "LV", "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI",
-                   "SK", "UK")
+country_codes <- c("AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "EL", "ES",
+                   "FI", "FR", "HR", "HU", "IE", "IT", "IS", "LI", "LT", "LU",
+                   "LV", "MT", "NL", "NO", "PL", "PT", "RO", "SE", "SI", "SK",
+                   "UK")
 
 # Load household data
 cens_01nhsize <- get_eurostat(id = "cens_01nhsize")
