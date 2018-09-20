@@ -3,6 +3,7 @@ library(eurostat) # For downloading data
 library(plyr)
 library(dplyr)
 library(ggplot2) # For plotting
+library(gridExtra)
 
 # Load data
 cens_01nhsize <- get_eurostat(id = "cens_01nhsize")
