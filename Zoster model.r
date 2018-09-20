@@ -59,9 +59,20 @@ horn <- function(time, state, params){
     return(out)})}
 
 # Solve the above given initial conditions
-model <- function(initial_states, time, parameters){
-  out <- lsoda(y = initial_states, times = time, func = horn, parms = parameters)
-  out <- as.data.frame(out)
+model <- function(initial_states, time, parameters, func = horn,
+                  event = FALSE, time2 = NULL, func2 = lambda){
+  if(!is.logical(event))
+    stop("event must be TRUE or FALSE")
+  if(event == FALSE){
+    out <- lsoda(y = initial_states, times = time, func = func, parms = parameters)
+    out <- as.data.frame(out)}
+  if(event == TRUE){
+    if(is.null(time2)){
+      stop("event times must be given")
+    }
+    out <- lsoda(y = initial_states, times = time, func = func, parms = parameters,
+               events = list(func = func2, time = time2))
+    out <- as.data.frame(out)}
   return(out)}
 
 # Example without force of infection function (values chosen arbitrarily)
